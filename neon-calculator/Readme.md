@@ -25,4 +25,4 @@ A **modern web calculator** built with **HTML, CSS, and JavaScript**, featuring 
 
 ### Clone the repository
 ```bash
-git clone https://github.com/pawargautam/Personal-Projects/neon-calculator.git
+git clone https://github.com/neon-calculator/pawargautam/Personal-Projects.git
