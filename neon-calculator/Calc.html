@@ -1,0 +1,61 @@
+<!-- 
+ A modern calculator web app built with HTML, CSS, and JavaScript, featuring a purple neon theme and support for both mouse clicks and keyboard input. 
+ 
+ Features:
+ - Responsive design for various screen sizes
+ - Keyboard input support
+ - Clear button to reset the calculator
+ - Error handling for invalid expressions
+
+ Tech Stack:
+ - HTML for structure
+ - CSS for styling
+ - JavaScript(ES6) for logic, event handling, keyboard support
+  
+  Created by: Gautam Pawar
+  Date: June 2024
+  version: 1.0
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purple Neon Calculator</title>
+  <link rel="stylesheet" href="CalcStyle.css"> <!-- Link to external CSS file change according to your directory structure -->
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    
+    <div class="buttons">
+      <!-- Number buttons -->
+      <div class="numbers">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="zero">0</button>
+        <button>.</button>
+        <button class="clear">Clear</button>
+      </div>
+
+      <!-- Operators -->
+      <div class="operators">
+        <button>/</button>
+        <button>*</button>
+        <button>-</button>
+        <button>+</button>
+        <button class="equal">=</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="CalcScript.js"></script> <!-- Link to external JS file change according to your directory structure -->
+</body>
+</html>
