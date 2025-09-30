@@ -36,8 +36,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
+    # Upload only your neon calculator project
+        path: './projects/neon-calculator'
+
         id: deployment
         uses: actions/deploy-pages@v4
