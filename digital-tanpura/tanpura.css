@@ -1,0 +1,584 @@
+/* ===== FULL PAGE TANPURA SECTION ===== */
+
+.tanpura-panel {
+    background: linear-gradient(135deg, var(--darker), #1a0a12);
+    min-height: calc(100vh - 70px);
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.tanpura-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+}
+
+.tanpura-title {
+    color: var(--primary);
+    margin-bottom: 40px;
+    font-size: 3em;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Enhanced note display */
+.note-display {
+    background: linear-gradient(145deg, rgba(43, 15, 26, 0.8), rgba(42, 15, 28, 0.6));
+    border: 3px solid var(--primary);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.note-display::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.note-display.playing::after {
+    opacity: 1;
+}
+
+.current-note {
+    font-size: 5em;
+    font-weight: bold;
+    color: var(--primary);
+    line-height: 1;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.current-freq {
+    font-size: 1.8em;
+    color: var(--light);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+/* Full-width tanpura visualization */
+.tanpura-visualization {
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(43, 15, 26, 0.6), transparent);
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    width: 100%;
+}
+
+.waveform {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 4px,
+            var(--primary) 4px,
+            var(--primary) 8px
+        );
+    opacity: 0.3;
+    animation: waveMove 3s infinite linear;
+}
+
+@keyframes waveMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-8px); }
+}
+
+.visualization-bars {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
+    padding: 0 40px;
+}
+
+.visualization-bar {
+    width: 12px;
+    background: linear-gradient(to top, var(--primary), var(--secondary));
+    border-radius: 6px 6px 0 0;
+    transition: height 0.2s ease, background 0.3s ease;
+    flex: 1;
+    margin: 0 2px;
+}
+
+/* Enhanced controls layout - Centered but full width background */
+.tanpura-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.control-group-tanpura {
+    background: rgba(43, 15, 26, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--medium);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.control-group-tanpura:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+}
+
+.control-label-tanpura {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+    color: var(--light);
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.control-select, .control-slider {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--medium);
+    background: var(--darker);
+    color: var(--light);
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.control-select:focus, .control-slider:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.control-slider {
+    -webkit-appearance: none;
+    height: 10px;
+    background: var(--medium);
+    border-radius: 5px;
+    padding: 0;
+}
+
+.control-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.control-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.control-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Advanced controls - Full width but centered content */
+.advanced-controls {
+    background: rgba(43, 15, 26, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px auto;
+    border: 1px solid var(--medium);
+    max-width: 1200px;
+    backdrop-filter: blur(10px);
+}
+
+.advanced-controls h4 {
+    color: var(--primary);
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.preset-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.preset-btn {
+    background: var(--darker);
+    color: var(--light);
+    border: 1px solid var(--medium);
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    flex: 1;
+    min-width: 200px;
+}
+
+.preset-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.preset-btn.active {
+    background: var(--primary);
+    color: var(--darker);
+    border-color: var(--primary);
+}
+
+/* Enhanced play button */
+#tanpura-toggle {
+    background: linear-gradient(145deg, var(--success), #8bc34a);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 25px 60px;
+    border-radius: 60px;
+    margin: 40px auto;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    letter-spacing: 1.5px;
+    min-width: 300px;
+}
+
+#tanpura-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+#tanpura-toggle.playing {
+    background: linear-gradient(145deg, var(--danger), #c62828);
+}
+
+#toggle-icon {
+    font-size: 1.3em;
+}
+
+/* Status indicator */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    background: rgba(43, 15, 26, 0.8);
+    font-size: 1.1em;
+    backdrop-filter: blur(5px);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--danger);
+    animation: pulse 2s infinite;
+}
+
+.status-dot.playing {
+    background: var(--success);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== INDIAN CLASSICAL FEATURES ===== */
+.indian-classical-controls {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(43, 15, 26, 0.8);
+    border-radius: 15px;
+    border: 1px solid var(--medium);
+    backdrop-filter: blur(10px);
+}
+
+.indian-classical-controls h4 {
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.effect-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.effect-btn {
+    background: var(--darker);
+    color: var(--light);
+    border: 1px solid var(--medium);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.effect-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.effect-btn.active {
+    background: var(--primary);
+    color: var(--darker);
+    border-color: var(--primary);
+}
+
+.sur-test-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(43, 15, 26, 0.6);
+    border-radius: 12px;
+    border: 1px solid var(--medium);
+}
+
+.sur-test-section h5 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+}
+
+.sur-test-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.sur-test-status {
+    padding: 15px;
+    background: var(--darker);
+    border-radius: 8px;
+    font-size: 1em;
+    border: 1px solid var(--medium);
+}
+
+.sur-test-info {
+    color: var(--light);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.sync-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(43, 15, 26, 0.8);
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 1px solid var(--medium);
+}
+
+.sync-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #666;
+    transition: all 0.3s ease;
+}
+
+.practice-tips {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.practice-tips h5 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+}
+
+.practice-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.practice-tips li {
+    color: var(--light);
+    padding: 8px 0;
+    font-size: 1em;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Green sync visualization */
+.visualization-bar[style*="background: linear-gradient(to top, #4CAF50, #8BC34A)"] {
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .tanpura-panel {
+        padding: 30px 15px;
+        min-height: calc(100vh - 70px);
+    }
+    
+    .tanpura-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    
+    .current-note {
+        font-size: 3.5em;
+    }
+    
+    .note-display {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .tanpura-visualization {
+        height: 150px;
+        margin: 30px 0;
+    }
+    
+    .visualization-bars {
+        padding: 0 20px;
+    }
+    
+    .tanpura-controls {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .advanced-controls {
+        padding: 25px 20px;
+        margin: 30px 15px;
+    }
+    
+    .preset-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preset-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .effect-buttons {
+        flex-direction: column;
+    }
+    
+    .effect-btn {
+        width: 100%;
+    }
+    
+    .sur-test-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .indian-classical-controls {
+        padding: 20px 15px;
+    }
+    
+    #tanpura-toggle {
+        width: 90%;
+        max-width: 300px;
+        padding: 20px 30px;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .tanpura-title {
+        font-size: 1.8em;
+    }
+    
+    .current-note {
+        font-size: 2.8em;
+    }
+    
+    .tanpura-visualization {
+        height: 120px;
+    }
+    
+    .advanced-controls {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+}

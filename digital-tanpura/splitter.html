@@ -1,0 +1,57 @@
+<div class="tool-content active" id="splitter-content">
+    <h2 class="tool-title">
+        <i class="fas fa-cut"></i>
+        Audio Splitter
+    </h2>
+    <p class="tool-description">
+        Split your audio files into smaller segments at specific time points.
+    </p>
+    
+    <div class="splitter-container">
+        <div class="upload-section">
+            <h3>Upload Audio File</h3>
+            <input type="file" id="splitter-upload" accept="audio/*" class="mt-20">
+        </div>
+        
+        <div class="split-controls mt-20">
+            <div class="control-group">
+                <label class="control-label">Split Points (seconds)</label>
+                <input type="text" id="split-points" placeholder="30, 60, 90" class="mt-10">
+                <small>Enter time points in seconds, separated by commas</small>
+            </div>
+            
+            <button class="btn mt-20" id="split-audio-btn">
+                <i class="fas fa-cut"></i> Split Audio
+            </button>
+        </div>
+        
+        <div class="results-section mt-20">
+            <h3>Split Segments</h3>
+            <div id="segments-container">
+                <!-- Segments will be added here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.splitter-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.upload-section, .split-controls, .results-section {
+    margin-bottom: 30px;
+}
+
+#split-points {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--medium);
+    background-color: var(--darker);
+    color: var(--light);
+}
+</style>

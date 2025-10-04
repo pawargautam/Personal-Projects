@@ -1,0 +1,108 @@
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 15px;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+    
+    .main-content.with-drawer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .drawer {
+        width: 100%;
+        right: 0;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pitch-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-section {
+        padding: 20px;
+    }
+}
+
+/* ===== LOGIN PAGE RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .login-container {
+        width: 100%;
+    }
+    
+    .login-form-container {
+        padding: 20px;
+    }
+    
+    .login-header {
+        padding: 20px 15px;
+    }
+    
+    .login-header h1 {
+        font-size: 24px;
+    }
+}
+
+/* ===== ABOUT PAGE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .about-content {
+        padding: 20px 15px;
+        margin-top: 70px;
+    }
+    
+    .about-content .hero-title {
+        font-size: 2.2em;
+    }
+    
+    .about-content .hero-subtitle {
+        font-size: 1.1em;
+    }
+    
+    .about-content .info-section {
+        padding: 25px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .about-content .section-title {
+        font-size: 1.6em;
+    }
+    
+    .about-content .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .benefit-item {
+        padding: 20px;
+    }
+    
+    .feature-box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content .hero-title {
+        font-size: 1.8em;
+    }
+    
+    .about-content .info-section {
+        padding: 20px 15px;
+    }
+}

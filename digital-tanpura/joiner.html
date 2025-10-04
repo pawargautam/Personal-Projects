@@ -1,0 +1,130 @@
+<div class="tool-content active" id="joiner-content">
+    <h2 class="tool-title">
+        <i class="fas fa-link"></i>
+        Audio Joiner
+    </h2>
+    <p class="tool-description">
+        Combine multiple audio files into one seamless track. Perfect for creating mixes or joining song parts.
+    </p>
+    
+    <div class="joiner-container">
+        <div class="upload-section">
+            <h3>Upload Audio Files</h3>
+            <input type="file" id="joiner-upload" accept="audio/*" multiple class="mt-20">
+            <small>Select multiple files to join (MP3, WAV, OGG supported)</small>
+        </div>
+        
+        <div class="files-list mt-20">
+            <h3>Files to Join</h3>
+            <div id="files-container" class="mt-10">
+                <!-- Files will be listed here -->
+                <p class="no-files">No files selected yet</p>
+            </div>
+        </div>
+        
+        <div class="joiner-controls mt-20">
+            <div class="control-group">
+                <label class="control-label">Crossfade Duration (seconds)</label>
+                <div class="slider-container">
+                    <input type="range" min="0" max="5" value="0.5" step="0.1" class="slider" id="crossfade-slider">
+                    <span class="slider-value" id="crossfade-value">0.5s</span>
+                </div>
+            </div>
+            
+            <div class="control-buttons mt-20">
+                <button class="btn" id="reorder-up-btn">
+                    <i class="fas fa-arrow-up"></i> Move Up
+                </button>
+                <button class="btn" id="reorder-down-btn">
+                    <i class="fas fa-arrow-down"></i> Move Down
+                </button>
+                <button class="btn btn-secondary" id="remove-file-btn">
+                    <i class="fas fa-trash"></i> Remove
+                </button>
+            </div>
+            
+            <button class="btn mt-20" id="join-audio-btn">
+                <i class="fas fa-link"></i> Join Audio Files
+            </button>
+        </div>
+        
+        <div class="results-section mt-20">
+            <h3>Joined Audio</h3>
+            <div id="joined-audio-container" class="mt-10">
+                <!-- Joined audio will appear here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.joiner-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.files-list {
+    background-color: var(--darker);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--medium);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+.file-item.selected {
+    background-color: rgba(212, 175, 55, 0.3);
+    border-left-color: var(--secondary);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-name {
+    font-weight: bold;
+    color: var(--light);
+}
+
+.file-duration {
+    color: #d4cfcf;
+    font-size: 12px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.no-files {
+    color: #d4cfcf;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.audio-preview {
+    background-color: var(--darker);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.audio-preview h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+</style>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Studio Pro - Your Complete Audio Toolkit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-music logo-icon"></i>
+            <span>Audio Studio Pro</span>
+        </div>
+        <div class="header-nav">
+            <a class="nav-item" id="support-btn"><i class="fas fa-life-ring"></i> Support</a>
+            <a class="nav-item" id="about-btn"><i class="fas fa-info-circle"></i> About</a>
+            <a class="nav-item" id="login-btn"><i class="fas fa-user"></i> Login</a>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Tools Drawer -->
+        <div class="drawer" id="tools-drawer">
+            <div class="drawer-header">
+                <h2>Audio Tools</h2>
+            </div>
+            <div class="tool-item active" data-tool="home">
+                <i class="fas fa-home tool-icon"></i>
+                <span>Home</span>
+            </div>
+            <div class="tool-item" data-tool="recorder">
+                <i class="fas fa-microphone tool-icon"></i>
+                <span>Recorder</span>
+            </div>
+            <div class="tool-item" data-tool="pitcher">
+                <i class="fas fa-sliders-h tool-icon"></i>
+                <span>Pitcher</span>
+            </div>
+            <div class="tool-item" data-tool="splitter">
+                <i class="fas fa-cut tool-icon"></i>
+                <span>Splitter</span>
+            </div>
+            <div class="tool-item" data-tool="key-bpm">
+                <i class="fas fa-search tool-icon"></i>
+                <span>Key & BPM Finder</span>
+            </div>
+            <div class="tool-item" data-tool="cutter">
+                <i class="fas fa-scissors tool-icon"></i>
+                <span>Cutter</span>
+            </div>
+            <div class="tool-item" data-tool="joiner">
+                <i class="fas fa-link tool-icon"></i>
+                <span>Joiner</span>
+            </div>
+            <div class="tool-item" data-tool="remover">
+                <i class="fas fa-eraser tool-icon"></i>
+                <span>Remover</span>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="tanpura.css">
+
+        <div class="tanpura-container">
+            <h1>🎶 Digital Tanpura & Pitch Finder</h1>
+  
+            <div class="tanpura-controls">
+            <label for="pitch">Select Pitch:</label>
+            <select id="pitch">
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+            </select>
+    
+            <button id="playBtn">▶ Play</button>
+            <button id="stopBtn">⏹ Stop</button>
+        </div>
+
+        <div class="pitch-detection">
+            <p>🎤 Sing/Play a note to detect:</p>
+            <p id="detectedNote">Detected Pitch: --</p>
+        </div>
+                </div>
+
+
+
+
+        <!-- Main Content Area -->
+        <div class="main-content" id="main-content">
+            <div class="content-header">
+                <button class="toggle-drawer" id="toggle-drawer">
+                    <i class="fas fa-bars"></i> Tools Menu
+                </button>
+                <h1 id="page-title">Audio Studio Pro</h1>
+            </div>
+
+            <!-- Home Page Content -->
+            <div class="tool-content active" id="home-content">
+                <div class="hero-section">
+                    <h1 class="hero-title">Your Complete Audio Toolkit</h1>
+                    <p class="hero-subtitle">Professional audio tools for recording, editing, and analyzing your audio files. All in one place, completely free.</p>
+                    <button class="btn" id="get-started-btn">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                </div>
+
+                <h2 class="text-center mb-20">Available Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool="recorder">
+                        <i class="fas fa-microphone tool-card-icon"></i>
+                        <h3 class="tool-card-title">Audio Recorder</h3>
+                        <p class="tool-card-desc">Record high-quality audio from your microphone with visualization.</p>
+                    </div>
+                    <div class="tool-card" data-tool="pitcher">
+                        <i class="fas fa-sliders-h tool-card-icon"></i>
+                        <h3 class="tool-card-title">Pitcher</h3>
+                        <p class="tool-card-desc">Change the pitch and speed of your audio files.</p>
+                    </div>
+                    <div class="tool-card" data-tool="splitter">
+                        <i class="fas fa-cut tool-card-icon"></i>
+                        <h3 class="tool-card-title">Audio Splitter</h3>
+                        <p class="tool-card-desc">Split long audio files into smaller segments.</p>
+                    </div>
+                    <div class="tool-card" data-tool="key-bpm">
+                        <i class="fas fa-search tool-card-icon"></i>
+                        <h3 class="tool-card-title">Key & BPM Finder</h3>
+                        <p class="tool-card-desc">Detect the key signature and BPM of your audio tracks.</p>
+                    </div>
+                    <div class="tool-card" data-tool="cutter">
+                        <i class="fas fa-scissors tool-card-icon"></i>
+                        <h3 class="tool-card-title">Audio Cutter</h3>
+                        <p class="tool-card-desc">Cut specific sections from your audio files.</p>
+                    </div>
+                    <div class="tool-card" data-tool="joiner">
+                        <i class="fas fa-link tool-card-icon"></i>
+                        <h3 class="tool-card-title">Audio Joiner</h3>
+                        <p class="tool-card-desc">Merge multiple audio files into one seamless track.</p>
+                    </div>
+                    <div class="tool-card" data-tool="remover">
+                        <i class="fas fa-eraser tool-card-icon"></i>
+                        <h3 class="tool-card-title">Noise Remover</h3>
+                        <p class="tool-card-desc">Remove background noise from your recordings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool content will be loaded here dynamically -->
+            <div id="tool-content-container"></div>
+        </div>
+    </div>
+
+    <script src="tanpura.js"></script>
+    <script src="utils.js"></script>
+    <script src="navigation.js"></script>
+    <script src="recorder.js"></script>
+    <script src="pitcher.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

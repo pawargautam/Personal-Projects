@@ -1,0 +1,62 @@
+<div class="tool-content active" id="cutter-content">
+    <h2 class="tool-title">
+        <i class="fas fa-scissors"></i>
+        Audio Cutter
+    </h2>
+    <p class="tool-description">
+        Cut specific sections from your audio files with precision.
+    </p>
+    
+    <div class="cutter-container">
+        <div class="upload-section">
+            <h3>Upload Audio File</h3>
+            <input type="file" id="cutter-upload" accept="audio/*" class="mt-20">
+        </div>
+        
+        <div class="cut-controls mt-20">
+            <div class="time-controls">
+                <div class="time-input">
+                    <label class="control-label">Start Time (seconds)</label>
+                    <input type="number" id="start-time" min="0" value="0" class="mt-10">
+                </div>
+                <div class="time-input">
+                    <label class="control-label">End Time (seconds)</label>
+                    <input type="number" id="end-time" min="0" value="0" class="mt-10">
+                </div>
+            </div>
+            
+            <button class="btn mt-20" id="cut-audio-btn">
+                <i class="fas fa-scissors"></i> Cut Audio
+            </button>
+        </div>
+        
+        <div class="preview-section mt-20">
+            <h3>Preview</h3>
+            <audio id="audio-preview" controls class="mt-10" style="width: 100%"></audio>
+        </div>
+    </div>
+</div>
+
+<style>
+.cutter-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.time-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.time-input input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--medium);
+    background-color: var(--darker);
+    color: var(--light);
+}
+</style>

@@ -1,0 +1,92 @@
+<div class="tool-content active" id="pitcher-content">
+    <h2 class="tool-title">
+        <i class="fas fa-sliders-h"></i>
+        Pitcher
+    </h2>
+    <p class="tool-description">
+        Adjust the pitch and speed of your audio files. Perfect for tuning vocals or creating special effects.
+    </p>
+
+    <div class="pitcher-container">
+        <div class="pitch-controls">
+            <div class="control-group">
+                <label class="control-label">Pitch Adjustment</label>
+                <div class="slider-container">
+                    <input type="range" min="-12" max="12" value="0" class="slider" id="pitch-slider">
+                    <span class="slider-value" id="pitch-value">0</span>
+                </div>
+                <div class="mt-20">
+                    <button class="btn" id="apply-pitch-btn">
+                        <i class="fas fa-check"></i> Apply Pitch
+                    </button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label">Speed Adjustment</label>
+                <div class="slider-container">
+                    <input type="range" min="50" max="200" value="100" class="slider" id="speed-slider">
+                    <span class="slider-value" id="speed-value">100%</span>
+                </div>
+                <div class="mt-20">
+                    <button class="btn" id="apply-speed-btn">
+                        <i class="fas fa-check"></i> Apply Speed
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-20">
+            <h3>Upload Audio File</h3>
+            <input type="file" id="audio-upload" accept="audio/*" class="mt-20">
+        </div>
+    </div>
+</div>
+
+<style>
+.pitcher-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pitch-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.control-group {
+    background-color: var(--darker);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--light);
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider {
+    flex: 1;
+    height: 6px;
+    background-color: var(--medium);
+    border-radius: 3px;
+    outline: none;
+}
+
+.slider-value {
+    min-width: 40px;
+    text-align: center;
+}
+</style>

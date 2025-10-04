@@ -1,0 +1,72 @@
+<div class="tool-content active" id="remover-content">
+    <h2 class="tool-title">
+        <i class="fas fa-eraser"></i>
+        Noise Remover
+    </h2>
+    <p class="tool-description">
+        Remove background noise and improve audio quality.
+    </p>
+    
+    <div class="remover-container">
+        <div class="upload-section">
+            <h3>Upload Audio File</h3>
+            <input type="file" id="remover-upload" accept="audio/*" class="mt-20">
+        </div>
+        
+        <div class="noise-controls mt-20">
+            <div class="control-group">
+                <label class="control-label">Noise Reduction Level</label>
+                <div class="slider-container">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="noise-level-slider">
+                    <span class="slider-value" id="noise-level-value">50%</span>
+                </div>
+            </div>
+            
+            <button class="btn mt-20" id="remove-noise-btn">
+                <i class="fas fa-eraser"></i> Remove Noise
+            </button>
+        </div>
+        
+        <div class="comparison-section mt-20">
+            <h3>Before & After</h3>
+            <div class="audio-comparison">
+                <div class="audio-player">
+                    <h4>Original</h4>
+                    <audio id="original-audio" controls class="mt-10" style="width: 100%"></audio>
+                </div>
+                <div class="audio-player">
+                    <h4>Processed</h4>
+                    <audio id="processed-audio" controls class="mt-10" style="width: 100%"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.remover-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.audio-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.audio-player {
+    background-color: var(--darker);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.audio-player h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+</style>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Audio Studio Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body class="login-page">
+
+     <header class="header">
+        <div class="logo">
+            <i class="fas fa-music logo-icon"></i>
+            <span>Audio Studio Pro</span>
+        </div>
+        <div class="header-nav">
+            <a class="nav-item" href="index.html"><i class="fas fa-home tool-iconr"></i> Home</a>
+            <a class="nav-item" href="about.html"><i class="fas fa-life-ring"></i> Support</a>
+            <a class="nav-item" href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Audio Studio Pro</h1>
+            <p>Create your account to get started</p>
+        </div>
+        
+        <div class="login-form-container">
+            <form id="signup-form">
+                <div class="login-form-group">
+                    <label for="name" class="login-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="login-input" required>
+                </div>
+                
+                <div class="login-form-group">
+                    <label for="email" class="login-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="login-input" required>
+                </div>
+                
+                <div class="login-form-group">
+                    <label for="password" class="login-label">Password</label>
+                    <input type="password" id="password" name="password" class="login-input" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Create Account</button>
+            </form>
+            
+            <div class="login-link">
+                Already have an account? <a href="#">Log in</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (!name || !email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real application, you would send this data to your server
+            console.log('Form submitted:', { name, email, password });
+            
+            // Show success message
+            alert('Account created successfully!');
+            
+            // Reset form
+            document.getElementById('signup-form').reset();
+        });
+    </script>
+</body>
+</html>
